@@ -39,3 +39,15 @@ require("lazy").setup({
     },
   },
 })
+
+-- Automatically trigger plugin updates when Neovim starts
+vim.api.nvim_create_autocmd("VimEnter", {
+  pattern = "*",
+  callback = function()
+    -- delay execution
+    vim.defer_fn(function()
+      -- update and don't show update notifications or progress
+      require("lazy").update({ show = false })
+    end, 1000)
+  end,
+})
