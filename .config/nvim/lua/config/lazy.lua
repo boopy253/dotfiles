@@ -17,14 +17,15 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   spec = {
     -- Load all plugin specs from the 'plugins' directory
-    { import = "plugins" },
+    { import = "plugins.ui" },
+    { import = "plugins.editor" },
   },
   -- Colorschemes for initial install
   install = { colorscheme = { "tokyonight", "habamax" } },
   -- Automatically check for plugin updates
   checker = {
     enabled = true, -- check for plugin updates periodically
-  }, 
+  },
   performance = {
     rtp = {
       -- Disable unused built-in plugins for faster startup
