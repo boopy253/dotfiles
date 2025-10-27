@@ -124,7 +124,6 @@ return {
 
       -- Save related shortcuts - highly related to buffer management
       { "<leader>w", "<cmd>write<cr>", desc = "[W]rite [F]ile" },
-      { "<leader>W", "<cmd>wall<cr>", desc = "[W]rite [A]ll Files" },
       {
         "<leader>wq",
         function()
