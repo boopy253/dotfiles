@@ -22,7 +22,15 @@ return {
       -- Defines keymap groups that appear in the which-key popup
       spec = {
         { "<leader>s", group = "[S]earch", icon = "🔍" },
+        { "<leader>t", group = "[T]oggle", icon = "🔄" },
+        { "<leader>h", group = "Git [H]unk", mode = { "n", "v" }, icon = "🌿" },
         { "<leader>b", group = "[B]uffer", icon = "📁" },
+        { "<leader>d", group = "[D]ebug", icon = "🐛" },
+        { "<leader>w", group = "[W]rite", icon = "💾" },
+
+        { "g", group = "+goto", mode = { "n", "v" }, icon = "🚀" },
+        { "<leader>c", group = "[C]ode", icon = "🔧" },
+        { "<leader>r", group = "[R]efactor", icon = "♻️" },
 
         { "<leader>1", hidden = true },
         { "<leader>2", hidden = true },
@@ -39,4 +47,3 @@ return {
     },
   },
 }
-

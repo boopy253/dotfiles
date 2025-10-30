@@ -19,6 +19,11 @@ require("lazy").setup({
     -- Load all plugin specs from the 'plugins' directory
     { import = "plugins.ui" },
     { import = "plugins.editor" },
+    { import = "plugins.lsp" },
+    { import = "plugins.dap" },
+    { import = "plugins.lang" },
+    { import = "plugins.coding" },
+    { import = "plugins.tools" },
   },
   -- Colorschemes for initial install
   install = { colorscheme = { "tokyonight", "habamax" } },
