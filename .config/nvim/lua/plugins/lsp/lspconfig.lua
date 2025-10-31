@@ -203,12 +203,13 @@ return {
         },
 
         -- Python
-        pylsp = {
+        pyright = {
           settings = {
-            pylsp = {
-              plugins = {
-                pycodestyle = { enabled = true, maxLineLength = 120 },
-                pyflakes = { enabled = true },
+            pyright = {
+              analysis = {
+                autoSearchPaths = true,
+                diagnosticMode = "openFilesOnly",
+                useLibraryCodeForTypes = true,
               },
             },
           },
