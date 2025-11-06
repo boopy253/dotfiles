@@ -129,7 +129,7 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Homebrew
-# export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -1,3 +1,4 @@
+-- TODO: `Super-tab`: In a specific scenario, it is still detected in the snippets, `Tab` to jump to another location.
 return {
   {
     "saghen/blink.cmp",
