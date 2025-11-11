@@ -1,14 +1,14 @@
 return {
   "akinsho/toggleterm.nvim",
   opts = {
-    open_mapping = [[<c-\>]],
+    open_mapping = [[<c-`>]],
     direction = "float",
     float_opts = {
       border = "curved",
     },
   },
   keys = {
-    { "<c-\\>", desc = "Toggle terminal" },
+    { "<c-`>", desc = "Toggle terminal" },
     -- LazyGit
     {
       "<leader>tg",

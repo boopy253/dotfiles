@@ -67,7 +67,14 @@ return {
           ".git",
           ".DS_Store",
           -- Python
+          ".venv",
           "__pycache__",
+          ".ruff_cache",
+          ".mypy_cache",
+        },
+
+        never_show_by_pattern = {
+          "*egg-info",
         },
       },
     },

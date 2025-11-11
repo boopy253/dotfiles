@@ -16,9 +16,6 @@ return {
       -- Buffer management
       { "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", desc = "[T]oggle [P]in Buffer" },
       { "<leader>bo", "<Cmd>BufferLineCloseOthers<CR>", desc = "[C]lose [O]ther Buffers" },
-      { "<leader>br", "<Cmd>BufferLineCloseRight<CR>", desc = "[C]lose Buffers to [R]ight" },
-      { "<leader>bl", "<Cmd>BufferLineCloseLeft<CR>", desc = "[C]lose Buffers to [L]eft" },
-      { "<leader>bs", "<cmd>BufferLinePick<cr>", desc = "[S]elect [B]uffer" },
       { "<leader>bc", "<cmd>BufferLinePickClose<cr>", desc = "[P]ick [C]lose Buffer" },
 
       -- Quick jump to buffer by number
@@ -32,21 +29,6 @@ return {
       { "<leader>8", "<cmd>BufferLineGoToBuffer 8<cr>", desc = "[G]o to Buffer [8]" },
       { "<leader>9", "<cmd>BufferLineGoToBuffer 9<cr>", desc = "[G]o to Buffer [9]" },
       { "<leader>$", "<cmd>BufferLineGoToBuffer -1<cr>", desc = "[G]o to [L]ast Buffer" },
-
-      {
-        "<leader>bd",
-        function()
-          require("mini.bufremove").delete(0)
-        end,
-        desc = "[D]elete [B]uffer",
-      },
-      {
-        "<leader>bD",
-        function()
-          require("mini.bufremove").delete(0, true)
-        end,
-        desc = "[D]elete [B]uffer (Force)",
-      },
     },
     opts = {
       options = {
