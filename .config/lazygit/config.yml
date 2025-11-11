@@ -2,25 +2,17 @@ gui:
   theme:
     activeBorderColor: [cyan, bold]
     inactiveBorderColor: [white]
-
     selectedLineBgColor: ['#2D3A5D']
-
     unstagedChangesColor: [red]
-
     cherryPickedCommitFgColor: [blue]
     cherryPickedCommitBgColor: [yellow]
-
   commandLogSize: 8
-
 git:
   parseEmoji: true
-
-  paging:
-    colorArg: always
-    pager: "delta --paging=never"
-
+  pagers:
+    - colorArg: always
+      pager: "delta --paging=never"
 confirmOnQuit: false
-
 refresher:
   refreshInterval: 3
   fetchInterval: 60

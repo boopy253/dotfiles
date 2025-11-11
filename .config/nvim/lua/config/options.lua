@@ -13,7 +13,7 @@ vim.opt.showmode = false
 vim.opt.scrolloff = 10
 
 -- Enable full mouse support
-vim.opt.mouse = ""
+vim.opt.mouse = "a"
 
 -- Maintain indentation on wrapped lines
 vim.opt.breakindent = true
@@ -57,4 +57,3 @@ vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = false
 
 vim.opt.autoread = true
-
