@@ -71,6 +71,8 @@ return {
           "__pycache__",
           ".ruff_cache",
           ".mypy_cache",
+          ".pytest_cache",
+          ".pdm-build",
         },
 
         never_show_by_pattern = {

@@ -140,6 +140,7 @@ alias ls='lsd'
 alias ll='ls -alh'
 # bat - replace cat
 alias cat='bat'
+alias catp='bat --plain --paging=never'
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
