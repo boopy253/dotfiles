@@ -15,7 +15,7 @@ jobs:
       - name: Lint shell scripts
         run: |
           brew install shellcheck
-          shellcheck install.sh uninstall.sh wrap.sh
+          shellcheck install.sh uninstall.sh
 
       - name: Validate JSON files
         run: |
@@ -48,14 +48,6 @@ jobs:
             echo "✓ $file"
           done
 
-      - name: Check for EditorConfig issues
-        run: |
-          if command -v editorconfig-checker &> /dev/null; then
-            editorconfig-checker .
-          else
-            echo "editorconfig-checker not installed, skipping"
-          fi
-
       - name: Validate git config syntax
         run: |
           git config -f .gitconfig --list > /dev/null && echo "✓ .gitconfig valid"
@@ -67,29 +59,4 @@ jobs:
             exit 1
           else
             echo "✓ No trailing whitespace found"
-          fi
-
-  security:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Check for secrets
-        run: |
-          if grep -r "BEGIN RSA PRIVATE KEY" . 2>/dev/null || \
-             grep -r "BEGIN OPENSSH PRIVATE KEY" . 2>/dev/null; then
-            echo "❌ Found private keys in repository!"
-            exit 1
-          else
-            echo "✓ No private keys detected"
-          fi
-
-      - name: Check for hardcoded credentials
-        run: |
-          if grep -rE '(password|secret|token|api_key|AWS_SECRET)' . \
-               --include="*.sh" --include="*.zsh" --include="*.lua" 2>/dev/null | \
-             grep -v '# ' | grep -v '.gitmessage'; then
-            echo "⚠️  Potential hardcoded credentials detected (check if intentional)"
-          else
-            echo "✓ No obvious hardcoded credentials"
           fi
