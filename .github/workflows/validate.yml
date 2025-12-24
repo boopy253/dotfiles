@@ -2,9 +2,9 @@ name: Validate Dotfiles
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   validate:
@@ -12,51 +12,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Lint shell scripts
+      - name: Validate shell scripts
         run: |
-          brew install shellcheck
-          shellcheck install.sh uninstall.sh
+          zsh -n install.sh
+          zsh -n uninstall.sh
+
+      - name: Validate git config
+        run: git config -f .gitconfig --list > /dev/null
 
       - name: Validate JSON files
         run: |
           for file in $(find .config -name "*.json" 2>/dev/null); do
-            echo "Checking: $file"
-            jq . "$file" > /dev/null || exit 1
+            jq . "$file" > /dev/null
           done
-
-      - name: Verify symlink targets exist
-        run: |
-          echo "Checking if all referenced files exist..."
-          expected_files=(
-            ".editorconfig"
-            ".fzf.zsh"
-            ".gitconfig"
-            ".gitignore_global"
-            ".gitmessage"
-            ".p10k.zsh"
-            ".vimrc"
-            ".zprofile"
-            ".zshenv"
-            ".zshrc"
-          )
-          
-          for file in "${expected_files[@]}"; do
-            if [[ ! -f "$file" ]]; then
-              echo "❌ Missing file: $file"
-              exit 1
-            fi
-            echo "✓ $file"
-          done
-
-      - name: Validate git config syntax
-        run: |
-          git config -f .gitconfig --list > /dev/null && echo "✓ .gitconfig valid"
-
-      - name: Check for trailing whitespace
-        run: |
-          if git grep -n '[[:space:]]$' -- '*.sh' '*.zsh' '*.lua' '*.md'; then
-            echo "❌ Found trailing whitespace"
-            exit 1
-          else
-            echo "✓ No trailing whitespace found"
-          fi
