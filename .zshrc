@@ -142,16 +142,9 @@ alias ll='ls -alh'
 alias cat='bat'
 alias catp='bat --plain --paging=never'
 
-# NVM - Lazy load for faster startup
-# Unset the function to load nvm only when needed
 export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
-nvm() {
-    unset -f nvm
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-    nvm "$@"
-}
 
 # SDKMAN - Lazy load for faster startup
 # SDKMAN NOTE: Makesure ~/.sdkman/bin/sdkman-init.sh hashbang is zsh
