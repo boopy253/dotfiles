@@ -156,3 +156,6 @@ sdkman() {
     sdkman "$@"
 }
 
+export PATH="$HOME/.rustup/toolchains/stable-aarch64-apple-darwin/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+

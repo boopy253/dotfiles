@@ -74,3 +74,6 @@
 
 [init]
   defaultBranch = main
+
+[branch]
+	autoSetupMerge = false
